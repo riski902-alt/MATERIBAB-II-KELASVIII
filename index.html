@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kelas VIII - Bab II: Sistem Komputer | INFORMATIKA FUN</title>
+    
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS (via CDN untuk layouting responsif yang cepat) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        /* Pengaturan Dasar & Tipografi */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #EBF4F6; /* Soft light blue/cyan */
+            color: #1E293B;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Animasi Latar Belakang (Floating Elements) */
+        .bg-element {
+            position: absolute;
+            color: rgba(96, 165, 250, 0.15); /* Soft blue transparan */
+            z-index: -1;
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+        /* Variasi delay untuk elemen background agar tidak seragam */
+        .delay-1 { animation-delay: 0s; }
+        .delay-2 { animation-delay: 2s; }
+        .delay-3 { animation-delay: 4s; }
+
+        /* Styling Tombol Interaktif */
+        .learning-btn {
+            display: flex;
+            align-items: center;
+            background: linear-gradient(145deg, #3B5D7C, #2C4862); /* Soft dark denim */
+            color: #FFFFFF;
+            padding: 1.25rem 1.5rem;
+            border-radius: 1.25rem;
+            border: 2px solid #5A7D9E;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            width: 100%;
+            cursor: pointer;
+        }
+
+        /* Hover & Active States */
+        .learning-btn:hover {
+            transform: translateY(-4px) scale(1.01);
+            border-color: #8AB4F8; /* Soft cyan/blue glow border */
+            box-shadow: 0 12px 25px rgba(59, 93, 124, 0.3);
+            background: linear-gradient(145deg, #44698B, #335370);
+        }
+        .learning-btn:active {
+            transform: translateY(2px) scale(0.99);
+            box-shadow: 0 2px 10px rgba(59, 93, 124, 0.2);
+        }
+
+        /* Animasi Ikon saat Hover */
+        .learning-btn:hover .btn-icon {
+            transform: scale(1.1) rotate(-5deg);
+            color: #8AB4F8;
+        }
+
+        /* Ikon Tombol */
+        .btn-icon {
+            font-size: 2rem;
+            width: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #A7F3D0; /* Soft green accent */
+            transition: transform 0.3s ease, color 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        /* Teks Tombol (Wajib Rata Kiri-Kanan) */
+        .btn-text {
+            flex-grow: 1;
+            margin-left: 1rem;
+            font-size: 1rem;
+            font-weight: 500;
+            line-height: 1.6;
+            text-align: justify;
+            text-justify: inter-word;
+            word-wrap: break-word;
+        }
+
+        /* Elemen Dekoratif Kanan Tombol (Panah kecil) */
+        .btn-arrow {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.5);
+            margin-left: 1rem;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+        }
+        .learning-btn:hover .btn-arrow {
+            transform: translateX(5px);
+            color: #FFFFFF;
+        }
+
+        /* Ripple Effect (Interaksi Sentuhan/Klik) */
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            transform: scale(0);
+            animation: ripple-animation 0.6s linear;
+            background-color: rgba(255, 255, 255, 0.25);
+            pointer-events: none;
+        }
+        @keyframes ripple-animation {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        /* Responsif Ekstra untuk Smartphone */
+        @media (max-width: 640px) {
+            .btn-icon { font-size: 1.5rem; width: 45px; }
+            .btn-text { font-size: 0.9rem; margin-left: 0.75rem; }
+            .learning-btn { padding: 1rem 1.25rem; border-radius: 1rem; }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center py-10 px-4">
+
+    <!-- Animasi Background (Dekorasi Elemen Komputer) -->
+    <i class="fa-solid fa-microchip bg-element delay-1 text-8xl" style="top: 10%; left: 5%;"></i>
+    <i class="fa-solid fa-desktop bg-element delay-2 text-7xl" style="top: 30%; right: 5%;"></i>
+    <i class="fa-solid fa-memory bg-element delay-3 text-6xl" style="bottom: 20%; left: 8%;"></i>
+    <i class="fa-solid fa-database bg-element delay-1 text-8xl" style="bottom: 10%; right: 10%;"></i>
+    <i class="fa-solid fa-network-wired bg-element delay-2 text-6xl" style="top: 50%; left: 2%;"></i>
+    <i class="fa-solid fa-folder-tree bg-element delay-3 text-7xl" style="top: 70%; right: 4%;"></i>
+
+    <!-- Kontainer Utama -->
+    <div class="w-full max-w-4xl relative z-10 flex flex-col items-center">
+        
+        <!-- Header -->
+        <header class="text-center mb-10 w-full">
+            <!-- Teks KELAS VIII dan BAB II disejajarkan di sini -->
+            <h2 class="text-xl md:text-2xl font-bold text-slate-500 tracking-wider mb-2">
+                KELAS VIII - BAB II
+            </h2>
+            <!-- Judul Bab utama -->
+            <h1 class="text-3xl md:text-5xl font-extrabold text-[#1E3A5F] mb-4 drop-shadow-sm">
+                SISTEM KOMPUTER
+            </h1>
+        </header>
+
+        <!-- Daftar Tombol Interaktif -->
+        <main class="w-full flex flex-col gap-5">
+            
+            <!-- Tombol 1 -->
+            <a href="#LINK_PERTEMUAN_1" class="learning-btn">
+                <div class="btn-icon"><i class="fa-solid fa-computer"></i></div>
+                <div class="btn-text">
+                    Pertemuan 1: Pengenalan Sistem Komputer dan Perangkat Keras (Hardware Input, Process, Output, Storage)
+                </div>
+                <div class="btn-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+            </a>
+
+            <!-- Tombol 2 -->
+            <a href="#LINK_PERTEMUAN_2" class="learning-btn">
+                <div class="btn-icon" style="color: #93C5FD;"><i class="fa-brands fa-windows"></i></div>
+                <div class="btn-text">
+                    Pertemuan 2: Perangkat Lunak (Software System & Application) serta Interaksi Antara Hardware dan Software
+                </div>
+                <div class="btn-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+            </a>
+
+            <!-- Tombol 3 -->
+            <a href="#LINK_PERTEMUAN_3" class="learning-btn">
+                <div class="btn-icon" style="color: #FCD34D;"><i class="fa-solid fa-microchip"></i></div>
+                <div class="btn-text">
+                    Pertemuan 3: Siklus Pemrosesan Data dan Cara Kerja Komputer (CPU, Memori Utama/RAM, ALU, dan Bus Data)
+                </div>
+                <div class="btn-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+            </a>
+
+            <!-- Tombol 4 -->
+            <a href="#LINK_PERTEMUAN_4" class="learning-btn">
+                <div class="btn-icon" style="color: #FDBA74;"><i class="fa-solid fa-list-check"></i></div>
+                <div class="btn-text">
+                    Pertemuan 4: Asesmen Sumatif Bab 2: Analisis Komponen Komputer dan Cara Kerja Pemrosesan
+                </div>
+                <div class="btn-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+            </a>
+
+            <!-- Tombol 5 (Games) -->
+            <a href="#LINK_GAMES" class="learning-btn">
+                <div class="btn-icon" style="color: #C4B5FD;"><i class="fa-solid fa-gamepad"></i></div>
+                <div class="btn-text">
+                    Games
+                </div>
+                <div class="btn-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+            </a>
+
+            <!-- Tombol 6 (Sumatif BAB II) -->
+            <a href="#LINK_SUMATIF_2" class="learning-btn">
+                <div class="btn-icon" style="color: #FCA5A5;"><i class="fa-solid fa-trophy"></i></div>
+                <div class="btn-text">
+                    Sumatif BAB II
+                </div>
+                <div class="btn-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+            </a>
+
+        </main>
+    </div>
+
+    <!-- Script untuk Interaksi Click / Ripple Effect -->
+    <script>
+        document.querySelectorAll('.learning-btn').forEach(button => {
+            button.addEventListener('click', function (e) {
+                const rect = button.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                const ripple = document.createElement('span');
+                ripple.classList.add('ripple');
+                
+                const diameter = Math.max(rect.width, rect.height);
+                ripple.style.width = ripple.style.height = `${diameter}px`;
+                ripple.style.left = `${x - diameter / 2}px`;
+                ripple.style.top = `${y - diameter / 2}px`;
+
+                button.appendChild(ripple);
+
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+        });
+    </script>
+</body>
+</html>
