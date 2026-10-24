@@ -253,13 +253,6 @@
     <script>
         document.querySelectorAll('.learning-btn').forEach(button => {
             button.addEventListener('click', function (e) {
-                // PENAMBAHAN: Mencegah error jika link masih berupa hashtag (#) atau kosong
-                const href = this.getAttribute('href');
-                if (href.includes('#')) {
-                    e.preventDefault();
-                }
-
-                // Logika Animasi Ripple
                 const rect = button.getBoundingClientRect();
                 const x = e.clientX - rect.left;
                 const y = e.clientY - rect.top;
